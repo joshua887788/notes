@@ -6,12 +6,10 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
-
 const generateUniqueId = () => {
-    return uuidv4();
-  };
-  
+  return uuidv4();
+};
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -53,7 +51,7 @@ app.post('/api/notes', (req, res) => {
     const notes = JSON.parse(data);
 
     // Generate a unique ID for the new note (you can use an npm package for this)
-    newNote.id = generateUniqueId(); // Implement this function
+    newNote.id = generateUniqueId();
 
     // Add the new note to the existing notes array
     notes.push(newNote);
@@ -77,7 +75,5 @@ app.post('/api/notes', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-
 
 

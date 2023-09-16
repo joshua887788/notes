@@ -1,23 +1,20 @@
-let noteTitle;
-let noteText;
-let saveNoteBtn;
-let newNoteBtn;
-let noteList;
+const saveNoteBtn = document.querySelector('.save-note');
+const newNoteBtn = document.querySelector('.new-note');
+const noteTitle = document.querySelector('.note-title');
+const noteText = document.querySelector('.note-textarea');
+const noteList = document.querySelector('.list-group');
 
-if (window.location.pathname === '/notes') {
-  // Ensure that these elements exist on the page before attaching event listeners
-  noteTitle = document.querySelector('.note-title');
-  noteText = document.querySelector('.note-textarea');
-  saveNoteBtn = document.querySelector('.save-note');
-  newNoteBtn = document.querySelector('.new-note');
-  noteList = document.querySelector('.list-group'); // Change to querySelector for single element
+saveNoteBtn.addEventListener('click', handleNoteSave);
+newNoteBtn.addEventListener('click', handleNewNoteView);
 
+document.addEventListener('DOMContentLoaded', () => {
   // Add event listeners
-  saveNoteBtn.addEventListener('click', handleNoteSave);
-  newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
-}
+
+  // Rest of your code here...
+});
+
 
 // Show an element
 const show = (elem) => {
@@ -183,3 +180,4 @@ const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 
 getAndRenderNotes();
+
