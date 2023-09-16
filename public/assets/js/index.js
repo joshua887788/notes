@@ -4,8 +4,7 @@ const noteTitle = document.querySelector('.note-title');
 const noteText = document.querySelector('.note-textarea');
 const noteList = document.querySelector('.list-group');
 
-saveNoteBtn.addEventListener('click', handleNoteSave);
-newNoteBtn.addEventListener('click', handleNewNoteView);
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // Add event listeners
@@ -173,10 +172,11 @@ const renderNoteList = async (notes) => {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
 };
-
+saveNoteBtn.addEventListener('click', handleNoteSave);
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
+newNoteBtn.addEventListener('click', handleNewNoteView);
 
 
 getAndRenderNotes();
