@@ -5,6 +5,16 @@ body {
   padding: 0;
 }
 
+.save-note {
+  display: none;
+}
+
+.icons i {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 
 .note-textarea,
 .note-title {
@@ -19,10 +29,7 @@ body {
   height: calc(100% - 63px);
   padding-top: 15px;
 }
-.save-note, .new-note {
-  cursor: pointer;
-  display:block;
-}
+
 .note-title {
   height: 50px;
   margin-top: 13px;
