@@ -77,9 +77,8 @@ const handleNoteSave = () => {
   });
 };
 
-// Delete the clicked note
+
 const handleNoteDelete = (e) => {
-  // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
 
   const note = e.target;
@@ -95,14 +94,14 @@ const handleNoteDelete = (e) => {
   });
 };
 
-// Sets the activeNote and displays it
+
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
   renderActiveNote();
 };
 
-// Sets the activeNote to and empty object and allows the user to enter a new note
+
 const handleNewNoteView = (e) => {
   activeNote = {};
   renderActiveNote();
@@ -116,7 +115,7 @@ const handleRenderSaveBtn = () => {
   }
 };
 
-// Render the list of note titles
+
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
@@ -125,7 +124,7 @@ const renderNoteList = async (notes) => {
 
   let noteListItems = [];
 
-  // Returns HTML element with or without a delete button
+ 
   const createLi = (text, delBtn = true) => {
     const liEl = document.createElement('li');
     liEl.classList.add('list-group-item');
@@ -170,7 +169,6 @@ const renderNoteList = async (notes) => {
   }
 };
 
-// Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
